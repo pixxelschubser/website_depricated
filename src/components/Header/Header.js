@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 export const Header = () => {
   return (
     <LogoWrapper>
-      <Logo>pixxelschubser</Logo>
+      <Logo>PIXXELSCHUBSER</Logo>
     </LogoWrapper>
   );
 };
