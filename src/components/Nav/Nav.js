@@ -1,26 +1,35 @@
 import styled, { keyframes } from 'styled-components/macro';
+import { MenuContent } from 'components';
 
 export const Nav = ({ menuActive, toggleMenu }) => {
   return (
     <Menu onClick={toggleMenu} menuActive={menuActive}>
-      <SwipeHint>{menuActive ? 'close' : 'menu'}</SwipeHint>
+      <SwipeHint menuActive={menuActive}>menu</SwipeHint>
+      <MenuContent LinkClick={toggleMenu} menuActive={menuActive} />
     </Menu>
   );
 };
 
 const Menu = styled.nav`
-  width: 0%;
+  width: 100%;
   height: 100vh;
 
   position: fixed;
-  animation-name: ${({ menuActive }) =>
-    menuActive ? openMenu : menuActive === '' ? '' : closeMenu};
+  left: calc(-100% + 20px);
   z-index: 3;
 
   background: rgba(0, 0, 0, 0.8);
-  border-right: 20px solid rgba(220, 220, 220, 1);
+  border: 20px solid rgba(220, 220, 220, 1);
 
-  animation-duration: 0.2s;
+  transition: 0.5s;
+  opacity: ${({ menuActive }) => (menuActive ? 1 : 0.3)};
+  &:hover {
+    opacity: 1;
+  }
+
+  animation-name: ${({ menuActive }) =>
+    menuActive ? openMenu : menuActive === '' ? '' : closeMenu};
+  animation-duration: 0.7s;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
 `;
@@ -34,23 +43,25 @@ const SwipeHint = styled.p`
   position: absolute;
   right: -25px;
   top: 50%;
-  transform: translateY(-25%) rotate(-90deg);
+  transform: translateY(-50%) rotate(-90deg);
+
+  opacity: ${({ menuActive }) => (menuActive ? 0 : 1)};
 `;
 
 const openMenu = keyframes`
     0% {
-      width: 0;
+      left: calc(-100% + 20px);
     }
     100% {
-      width: 100%;
+      left: 0;
     }
 `;
 
 const closeMenu = keyframes`
     0% {
-      width: 100%;
+      left: 0;
     }
     100% {
-      width: 0%;
+      left: calc(-100% + 20px);
     }
 `;
