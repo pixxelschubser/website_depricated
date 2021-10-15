@@ -3,9 +3,14 @@ import { useState } from 'react';
 import styled, { keyframes } from 'styled-components/macro';
 
 export const App = () => {
-  const [menuActive, setMenuActive] = useState(false);
+  const [menuActive, setMenuActive] = useState('');
+
   const toggleMenu = () => {
-    setMenuActive(!menuActive);
+    if (menuActive === '') {
+      setMenuActive(true);
+    } else {
+      setMenuActive(!menuActive);
+    }
   };
 
   return (
@@ -25,7 +30,11 @@ const Wrapper = styled.div`
 
   > * {
         animation-name: ${({ menuActive }) =>
-          menuActive ? backdropBlur : backdropClear};
+          menuActive
+            ? backdropBlur
+            : menuActive === ''
+            ? ''
+            : backdropClear};
         animation-duration: 0.2s;
         animation-timing-function: ease-in;
         animation-fill-mode: forwards;

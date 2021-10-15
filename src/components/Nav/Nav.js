@@ -14,7 +14,7 @@ const Menu = styled.nav`
 
   position: fixed;
   animation-name: ${({ menuActive }) =>
-    menuActive ? openMenu : closeMenu};
+    menuActive ? openMenu : menuActive === '' ? '' : closeMenu};
   z-index: 3;
 
   background: rgba(0, 0, 0, 0.8);
@@ -34,7 +34,7 @@ const SwipeHint = styled.p`
   position: absolute;
   right: -25px;
   top: 50%;
-  transform: translateY(-50%) rotate(-90deg);
+  transform: translateY(-25%) rotate(-90deg);
 `;
 
 const openMenu = keyframes`
