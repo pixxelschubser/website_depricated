@@ -18,7 +18,7 @@ export const Footer = () => {
         </PostalAddress>
         <Icon src="/icons/phone_white.svg" alt="Phone number" />
         <div>
-          <Link afterContent={phone} href="mailto:mail@pixxelschubser.com">
+          <Link afterContent={phone} href="tel:+15733383371">
             {phone}
           </Link>
         </div>
