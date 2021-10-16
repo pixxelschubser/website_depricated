@@ -10,6 +10,7 @@ export default createGlobalStyle`
 		color: rgba(220,220,220,1);
 		line-height: 1.5;
 		scroll-behavior: smooth;
+		cursor: default;
 	}
 
 	body {
