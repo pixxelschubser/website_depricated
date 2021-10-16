@@ -35,16 +35,18 @@ const Menu = styled.nav`
 `;
 
 const SwipeHint = styled.p`
+  writing-mode: sideways-lr;
   color: rgba(15, 15, 15, 1);
   font-size: 0.6rem;
   font-weight: 400;
   letter-spacing: 0.03rem;
 
   position: absolute;
-  right: -25px;
+  right: -17.5px;
   top: 50%;
-  transform: translateY(-50%) rotate(-90deg);
+  transform: translateY(-150%);
 
+  transition: 0.7s;
   opacity: ${({ menuActive }) => (menuActive ? 0 : 1)};
 `;
 
