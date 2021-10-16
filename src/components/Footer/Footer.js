@@ -22,7 +22,7 @@ export const Footer = () => {
             {phone}
           </Link>
         </div>
-        <Icon src="/icons/email_white.svg" alt="Phone number" />
+        <Icon src="/icons/email_white.svg" alt="Email" />
         <div>
           <Link afterContent={mail} href="mailto:mail@pixxelschubser.com">
             {mail}
