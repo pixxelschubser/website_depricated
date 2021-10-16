@@ -35,7 +35,7 @@ const Wrapper = styled.div`
             : menuActive === ''
             ? ''
             : backdropClear};
-        animation-duration: 0.2s;
+        animation-duration: 0.7s;
         animation-timing-function: ease-in;
         animation-fill-mode: forwards;
 `;

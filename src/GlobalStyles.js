@@ -9,6 +9,8 @@ export default createGlobalStyle`
 		font-family: "Montserrat", sans-serif;
 		color: rgba(220,220,220,1);
 		line-height: 1.5;
+		scroll-behavior: smooth;
+		cursor: default;
 	}
 
 	body {
