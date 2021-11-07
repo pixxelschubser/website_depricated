@@ -4,7 +4,7 @@ import { MenuContent } from 'components';
 export const Nav = ({ menuActive, toggleMenu }) => {
   return (
     <Menu onClick={toggleMenu} menuActive={menuActive}>
-      <SwipeHint menuActive={menuActive}>menu</SwipeHint>
+      <SwipeHint menuActive={menuActive}>MENU</SwipeHint>
       <MenuContent LinkClick={toggleMenu} menuActive={menuActive} />
     </Menu>
   );
@@ -13,18 +13,22 @@ export const Nav = ({ menuActive, toggleMenu }) => {
 const Menu = styled.nav`
   width: 100%;
   height: 100vh;
+  padding: 20px;
 
   position: fixed;
   left: calc(-100% + 20px);
   z-index: 3;
 
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--col-black-trans);
   border: 20px solid rgba(220, 220, 220, 1);
 
   transition: 0.5s;
-  opacity: ${({ menuActive }) => (menuActive ? 1 : 0.3)};
+  border: ${({ menuActive }) =>
+    menuActive
+      ? '20px solid var(--col-white)'
+      : '20px solid var(--col-grey)'};
   &:hover {
-    opacity: 1;
+    border: 20px solid var(--col-white);
   }
 
   animation-name: ${({ menuActive }) =>
@@ -35,13 +39,13 @@ const Menu = styled.nav`
 `;
 
 const SwipeHint = styled.p`
-  color: rgba(15, 15, 15, 1);
+  color: var(--col-black);
   font-size: 0.6rem;
-  font-weight: 400;
-  letter-spacing: 0.03rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
 
   position: absolute;
-  right: -24px;
+  right: -28px;
   top: 42.5%;
   transform: rotate(-90deg);
 
@@ -51,7 +55,7 @@ const SwipeHint = styled.p`
 
 const openMenu = keyframes`
     0% {
-      left: calc(-100% + 20px);
+      left: calc(-100% + 1rem);
     }
     100% {
       left: 0;
@@ -63,6 +67,6 @@ const closeMenu = keyframes`
       left: 0;
     }
     100% {
-      left: calc(-100% + 20px);
+      left: calc(-100% + 1rem);
     }
 `;
