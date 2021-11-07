@@ -1,4 +1,4 @@
-import { Header, Footer, Nav } from 'components';
+import { Header, Main, Footer, Nav } from 'components';
 import { useState } from 'react';
 import styled, { keyframes } from 'styled-components/macro';
 
@@ -13,31 +13,38 @@ export const App = () => {
     }
   };
 
+  const toggleScroll = () => {
+    if (!menuActive) {
+      document.body.style.overflow = 'scroll';
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
   return (
-    <>
+    <Scrollhandler onWheel={toggleScroll}>
       <Nav menuActive={menuActive} toggleMenu={toggleMenu} />
       <Wrapper menuActive={menuActive}>
         <Header />
+        <Main />
         <Footer />
       </Wrapper>
-    </>
+    </Scrollhandler>
   );
 };
 
+const Scrollhandler = styled.div``;
+
 const Wrapper = styled.div`
-  height: 100%;
-  width: 100%;
+  height: 100vh;
 
   > * {
-        animation-name: ${({ menuActive }) =>
-          menuActive
-            ? backdropBlur
-            : menuActive === ''
-            ? ''
-            : backdropClear};
-        animation-duration: 0.7s;
-        animation-timing-function: ease-in;
-        animation-fill-mode: forwards;
+    animation-name: ${({ menuActive }) =>
+      menuActive ? backdropBlur : menuActive === '' ? '' : backdropClear};
+    animation-duration: 0.7s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+  }
 `;
 
 const backdropBlur = keyframes`
