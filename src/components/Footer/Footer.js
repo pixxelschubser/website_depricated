@@ -29,14 +29,14 @@ export const Footer = () => {
           </Link>
         </div>
       </Address>
-      © 2021 pixxelschubser. All rights reserved.
+      <p>© 2021 pixxelschubser. All rights reserved.</p>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.footer`
   width: 100%;
-  padding: 20px 20px 20px 40px;
+  padding: 1rem 1rem 2rem 3rem;
 
   display: flex;
   flex-direction: column;
@@ -45,19 +45,21 @@ const Wrapper = styled.footer`
   position: fixed;
   bottom: 0;
 
-  font-size: 0.8rem;
+  font-size: var(--150rem);
   letter-spacing: 0.04rem;
   font-style: normal;
   font-weight: 400;
   white-space: nowrap;
 
+  z-index: -1;
+
   > * {
     width: 100%;
+    font-size: 0.8rem;
   }
 `;
 
 const Address = styled.address`
-  font-size: 0.8rem;
   letter-spacing: 0.04rem;
   font-style: normal;
   font-weight: 400;
